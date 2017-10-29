@@ -4,8 +4,6 @@ catalog:
   version: v1.6.5
   description: "ZNC is an advanced IRC bouncer that is left connected so an IRC client can disconnect/reconnect without losing the chat session."
   questions:
-    # - variable: new_install
-    #   label: 
     - variable: znc_data
       label: data volume
       description: Where to put ZNC configuration data
