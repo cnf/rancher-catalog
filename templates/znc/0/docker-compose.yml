@@ -2,10 +2,21 @@ version: '2'
 services:
   znc:
     labels:
-      io.rancher.sheduler.global: true
+      io.rancher.container.sidekicks: znc-makeconfig
     tty: false
     image: znc
     volumes:
       - ${znc_data}:/znc-data
     ports:
       - ${irc_port}:6697/tcp
+  znc-makeconfig:
+    labels:
+      io.rancher.container.start_once: true
+    image: znc
+    command:
+      - "sh"
+      - "echo"
+      - "exec '/sbin/tini -- su-exec znc:znc /opt/znc/bin/znc --foreground --datadir "$DATADIR" --makeconfig'"
+      - "> /startup-sequence/02-makeconfig.sh"
+    volumes_from:
+      - znc 
