@@ -15,9 +15,9 @@ services:
     image: znc
     tty: true
     command:
-      - "sh"
-      - "echo"
-      - "exec '/sbin/tini -- su-exec znc:znc /opt/znc/bin/znc --foreground --datadir "$DATADIR" --makeconfig'"
-      - "> /startup-sequence/02-makeconfig.sh"
+    - "sh"
+    - "echo"
+    - "exec '/sbin/tini -- su-exec znc:znc /opt/znc/bin/znc --foreground --datadir "$DATADIR" --makeconfig'"
+    - "> /startup-sequence/02-makeconfig.sh"
     volumes_from:
       - znc 
