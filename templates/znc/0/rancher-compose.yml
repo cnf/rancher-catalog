@@ -14,6 +14,4 @@ catalog:
       description: IRC port to listen on
       default: 6697
       type: int
-services:
-  znc:
-  
+
