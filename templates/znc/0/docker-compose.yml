@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  znc:
+    labels:
+      io.rancher.sheduler.global: true
+    tty: false
+    image: znc
+    volumes:
+      - ${znc_data}:/znc-data
+    ports:
+      - ${irc_port}:6697/tcp

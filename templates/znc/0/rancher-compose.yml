@@ -1,12 +1,19 @@
-version: '3'
-
+version: '2'
+catalog:
+  name: ZNC
+  version: v1.6.5
+  description: "ZNC is an advanced IRC bouncer that is left connected so an IRC client can disconnect/reconnect without losing the chat session."
+  questions:
+    - variable: znc_data
+      label: data volume
+      description: Where to put ZNC configuration data
+      default: znc-data
+      type: string
+    - variable: irc_port
+      label: IRC port
+      description: IRC port to listen on
+      default: 6697
+      type: int
 services:
   znc:
-    labels:
-      io.rancher.sheduler.global: true
-    tty: false
-    image: znc
-    volumes:
-      - ${znc_data}:/znc-data
-    ports:
-      - ${irc_port}:6697/tcp
+  
