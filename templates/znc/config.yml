@@ -1,0 +1,5 @@
+name: ZNC
+description: |
+   ZNC is an advanced IRC bouncer that is left connected so an IRC client can disconnect/reconnect without losing the chat session.
+version: v1.6.5
+category: chat
