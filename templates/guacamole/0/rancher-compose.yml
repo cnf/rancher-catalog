@@ -1,0 +1,81 @@
+version: '2'
+catalog:
+  name: Guacamole LDAP
+  version: v0.9.13-incubating
+  description: "Apache Guacamole is a clientless remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH."
+  questions:
+    - variable: LDAP_HOSTNAME
+      label: LDAP Hostname
+      description: The hostname or IP address of your LDAP server
+      required: true
+      default: localhost
+      type: string
+
+    - variable: LDAP_PORT
+      label: LDAP Port
+      description: The port your LDAP server listens on
+      required: true
+      default: 389
+      type: int
+
+    - variable: LDAP_ENCRYPTION_METHOD
+      label: LDAP encryption method
+      description: The encryption mechanism that Guacamole should use when communicating with your LDAP server.
+      default: none
+      required: true
+      type: enum
+      options:
+        - none 
+        - ssl 
+        - starttls 
+
+    - variable: LDAP_USER_BASE_DN
+      label: LDAP user base DN
+      description: The base of the DN for all Guacamole users. All Guacamole users that will be authenticating against LDAP must be descendents of this base DN.
+      required: true
+      default: ou=People,dc=example,dc=com
+      type: string
+
+    ## optional values
+    - variable: LDAP_GROUP_BASE_DN
+      label: LDAP group base DN
+      description: The base of the DN for all groups that may be referenced within Guacamole configurations using the standard seeAlso attribute. All groups which will be used to control access to Guacamole configurations must be descendents of this base DN. If this variable is omitted, the seeAlso attribute will have no effect on Guacamole configurations.
+      required: false
+      type: string
+
+    - variable: LDAP_SEARCH_BIND_DN
+      label: LDAP Search Bind DN
+      description: The DN of the user to bind as when authenticating users that are attempting to log in. If specified, Guacamole will query the LDAP directory to determine the DN of each user that logs in. If omitted, each user's DN will be derived directly using the base DN specified with LDAP_USER_BASE_DN.
+      required: false
+      type: string
+
+    - variable: LDAP_SEARCH_BIND_PASSWORD
+      label: LDAP search bind password
+      description: The password to provide to the LDAP server when binding as LDAP_SEARCH_BIND_DN to authenticate other users. This variable is only used if LDAP_SEARCH_BIND_DN is specified. If omitted, but LDAP_SEARCH_BIND_DN is specified, Guacamole will attempt to bind with the LDAP server without a password.
+      required: false
+      type: password
+
+    - variable: LDAP_USERNAME_ATTRIBUTE
+      label: LDAP username attribute
+      description: "The attribute or attributes which contain the username within all Guacamole user objects in the LDAP directory. Usually, and by default, this will simply be "uid". If your LDAP directory contains users whose usernames are dictated by different attributes, multiple attributes can be specified here, separated by commas, but beware: doing so requires that a search DN be provided with LDAP_SEARCH_BIND_DN."
+      required: false
+      type: string
+
+    - variable: LDAP_CONFIG_BASE_DN
+      label: LDAP config base DN
+      description: The base of the DN for all Guacamole configurations. If omitted, the configurations of Guacamole connections will simply not be queried from the LDAP directory, and you will need to store them elsewhere, such as within a MySQL or PostgreSQL database.
+      required: false
+      type: string
+
+
+
+      LDAP_SEARCH_BIND_DN: ou=People,dc=nullsense,dc=net
+      LDAP_USER_BASE_DN: ou=People,dc=nullsense,dc=net
+      LDAP_CONFIG_BASE_DN: ou=Config,dc=nullsense,dc=net
+      LDAP_GROUP_BASE_DN: ou=Groups,dc=nullsense,dc=net
+      LDAP_USERNAME_ATTRIBUTE: uid
+
+guacamole:
+  scale: 1
+guacd:
+  scale: 1
