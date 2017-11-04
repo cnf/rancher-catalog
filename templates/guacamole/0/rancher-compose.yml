@@ -58,7 +58,7 @@ catalog:
 
     - variable: LDAP_USERNAME_ATTRIBUTE
       label: LDAP username attribute
-      description: "The attribute or attributes which contain the username within all Guacamole user objects in the LDAP directory. Usually, and by default, this will simply be "uid". If your LDAP directory contains users whose usernames are dictated by different attributes, multiple attributes can be specified here, separated by commas, but beware: doing so requires that a search DN be provided with LDAP_SEARCH_BIND_DN."
+      description: 'The attribute or attributes which contain the username within all Guacamole user objects in the LDAP directory. Usually, and by default, this will simply be "uid". If your LDAP directory contains users whose usernames are dictated by different attributes, multiple attributes can be specified here, separated by commas, but beware: doing so requires that a search DN be provided with LDAP_SEARCH_BIND_DN.'
       required: false
       type: string
 
