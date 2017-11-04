@@ -2,7 +2,7 @@ version: '2'
 services:
   znc:
     labels:
-      io.rancher.container.sidekicks: znc-makeconfig
+      # io.rancher.container.sidekicks: znc-makeconfig
     tty: false
     image: znc
     volumes:
