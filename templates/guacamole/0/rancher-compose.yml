@@ -2,7 +2,8 @@ version: '2'
 catalog:
   name: Guacamole LDAP
   version: v0.9.13-incubating
-  description: "Apache Guacamole is a clientless remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH."
+  description: |
+    Apache Guacamole is a clientless remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH.
   questions:
     - variable: LDAP_HOSTNAME
       label: LDAP Hostname
