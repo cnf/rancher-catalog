@@ -75,7 +75,8 @@ catalog:
       LDAP_GROUP_BASE_DN: ou=Groups,dc=nullsense,dc=net
       LDAP_USERNAME_ATTRIBUTE: uid
 
-guacamole:
-  scale: 1
-guacd:
-  scale: 1
+services: 
+  guacamole:
+    scale: 1
+  guacd:
+    scale: 1
