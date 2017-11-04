@@ -13,10 +13,6 @@ services:
   guacamole:
     image: guacamole/guacamole:0.9.13-incubating
     restart: always
-    expose: 
-      - "8080"
-    links:
-      - guacd
     environment:
       LDAP_HOSTNAME: ${LDAP_HOSTNAME}
       LDAP_PORT: ${LDAP_PORT}
@@ -24,6 +20,9 @@ services:
       LDAP_USER_BASE_DN: ${LDAP_USER_BASE_DN}
       {{- if ne .Values.LDAP_SEARCH_BIND_DN ""}}
       LDAP_SEARCH_BIND_DN: ${LDAP_SEARCH_BIND_DN}
+      {{- end}}
+      {{- if ne .Values.LDAP_SEARCH_BIND_PASSWORD ""}}
+      LDAP_SEARCH_BIND_PASSWORD: ${LDAP_SEARCH_BIND_PASSWORD}
       {{- end}}
       {{- if ne .Values.LDAP_CONFIG_BASE_DN ""}}
       LDAP_CONFIG_BASE_DN: ${LDAP_CONFIG_BASE_DN}
@@ -36,8 +35,11 @@ services:
       {{- end}}
       # GUACD_PORT_4822_TCP_ADDR: guacd
       # GUACD_PORT_4822_TCP_PORT: 4822
+    expose: 
+      - "8080"
     networks:
       - guacamole
+    links:
+      - "guacd:guacd"
     depends_on:
-      #- postgres
       - guacd
