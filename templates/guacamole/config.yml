@@ -1,5 +1,5 @@
 name: Guacamole LDAP
 description: |
    Apache Guacamole is a clientless remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH, With LDAP backend
-version: v0.9.13
+version: v0.9.13-incubating
 category: Management, "Remote Desktop"
