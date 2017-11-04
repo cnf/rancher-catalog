@@ -67,14 +67,6 @@ catalog:
       required: false
       type: string
 
-
-
-      LDAP_SEARCH_BIND_DN: ou=People,dc=nullsense,dc=net
-      LDAP_USER_BASE_DN: ou=People,dc=nullsense,dc=net
-      LDAP_CONFIG_BASE_DN: ou=Config,dc=nullsense,dc=net
-      LDAP_GROUP_BASE_DN: ou=Groups,dc=nullsense,dc=net
-      LDAP_USERNAME_ATTRIBUTE: uid
-
 services: 
   guacamole:
     scale: 1
