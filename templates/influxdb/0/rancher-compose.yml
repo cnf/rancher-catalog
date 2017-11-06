@@ -1,11 +1,9 @@
 version: '2'
 catalog:
-  name: Influxdb
+  name: InfluxDB
+  version: v1
   description: |
     Scalable datastore for metrics, events, and real-time analytics
-  version: v1
-  minimum_rancher_version: v1.0.0
-  uuid: influxdb-0
   questions:
       - variable: INFLUXDB_VERSION
         label: Version
