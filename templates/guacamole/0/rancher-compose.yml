@@ -78,7 +78,8 @@ services:
       request_line: ''
       healthy_threshold: 2
       response_timeout: 5000
-      strategy: recreate
+      strategy: recreate                                                                                                                                                                                        
+      reinitializing_timeout: 60000
   guacd:
     scale: 1
     health_check:
@@ -88,4 +89,5 @@ services:
       request_line: ''
       healthy_threshold: 2
       response_timeout: 5000
-      strategy: recreate
+      strategy: recreate                                                                                                                                                                                        
+      reinitializing_timeout: 60000
