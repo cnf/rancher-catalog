@@ -5,36 +5,36 @@ catalog:
   description: |
     Scalable datastore for metrics, events, and real-time analytics
   questions:
-      - variable: INFLUXDB_VERSION
-        label: Version
-        description: What version of Influxdb to run
-        required: true
-        type: enum
-        default: "alpine"
-        options:
-          - "alpine"
-          - "latest"
-          - "1.3-alpine"
-          - "1.3.7-alpine"
-          - "1.3.6-alpine"
-          - "1.3.5-alpine"
-          - "1.3.4-alpine"
-          - "1.3.3-alpine"
-          - "1.3.2-alpine"
-          - "1.3.1-alpine"
-          - "1.3.0-alpine"
-          - "1.2-alpine"
-          - "1.1-alpine"
-          - "1.0-alpine"
-      - variable: INFLUXDB_EXPOSE
-        description: "Expose Influxdb"
-        label: "Expose influxdb:"
-        required: true
-        type: enum
-        default: "true"
-        options:
-          - "true"
-          - "false"
+    - variable: INFLUXDB_VERSION
+      label: Version
+      description: What version of Influxdb to run
+      required: true
+      type: enum
+      default: "alpine"
+      options:
+        - "alpine"
+        - "latest"
+        - "1.3-alpine"
+        - "1.3.7-alpine"
+        - "1.3.6-alpine"
+        - "1.3.5-alpine"
+        - "1.3.4-alpine"
+        - "1.3.3-alpine"
+        - "1.3.2-alpine"
+        - "1.3.1-alpine"
+        - "1.3.0-alpine"
+        - "1.2-alpine"
+        - "1.1-alpine"
+        - "1.0-alpine"
+    - variable: INFLUXDB_EXPOSE
+      label: "Expose influxdb"
+      description: "Publicly expose Influxdb?"
+      required: true
+      type: enum
+      default: "true"
+      options:
+        - "true"
+        - "false"
     - variable: INFLUXDB_PORT
       description: |
         Port to expose. 
