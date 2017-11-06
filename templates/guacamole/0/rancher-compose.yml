@@ -71,5 +71,20 @@ catalog:
 services: 
   guacamole:
     scale: 1
+    health_check:
+      port: 8080
+      interval: 5000
+      unhealthy_threshold: 3
+      request_line: ''
+      healthy_threshold: 2
+      strategy: recreate
+response_timeout: 5000
   guacd:
     scale: 1
+    health_check:
+      port: 4822
+      interval: 5000
+      unhealthy_threshold: 3
+      request_line: ''
+      healthy_threshold: 2
+      strategy: recreate

@@ -14,3 +14,14 @@ catalog:
       description: IRC port to listen on
       default: 6697
       type: int
+
+services: 
+  guacamole:
+    scale: 1
+    health_check:
+      port: 6667
+      interval: 5000
+      unhealthy_threshold: 3
+      request_line: ''
+      healthy_threshold: 2
+      strategy: recreate
