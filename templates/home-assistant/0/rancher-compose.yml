@@ -11,11 +11,15 @@ catalog:
       required: true
       default: hass-config
       type: string
-    - variable: APPD_HASS_KEY
-      label: Hass Key
-      description: Hass access key
-      required: false
-      type: password
+    # - variable: ENABLE_APPDAEMON
+    #   label: Enable AppDaemon?
+    #   required: true
+    #   type: 
+    # - variable: APPD_HASS_KEY
+    #   label: Hass Key
+    #   description: Hass access key
+    #   required: false
+    #   type: password
 
 
 services: 
@@ -28,5 +32,5 @@ services:
       request_line: ''
       healthy_threshold: 2
       strategy: recreate
-  appdaemon:
-    scale: 1
+  # appdaemon:
+  #   scale: 1
