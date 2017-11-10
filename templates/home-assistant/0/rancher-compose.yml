@@ -29,8 +29,7 @@ services:
       port: 8123
       interval: 5000
       unhealthy_threshold: 3
-      request_line: ''
+      request_line: GET /api/ HTTP/1.0
       healthy_threshold: 2
-      strategy: recreate
   # appdaemon:
   #   scale: 1
