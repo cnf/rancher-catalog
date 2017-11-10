@@ -6,8 +6,6 @@ services:
     restart: unless-stopped
     volumes:
       - ${HASS_CONFIG}:/config
-    devices:
-      - "/dev/bus/usb:/dev/bus/usb"
     expose:
       - "8123"
     # links:
