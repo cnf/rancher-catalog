@@ -6,8 +6,9 @@ catalog:
   questions:
     - variable: TIMEZONE
       label: Timezone
+
       default: "Europe/Brussels"
-      type: text
+      type: string
       required: true
     - variable: SONARR_ENABLE
       label: Enable sonarr?
@@ -43,6 +44,26 @@ catalog:
     - variable: PLEXPY_PORT
       label: Public PlexPy port
       description: Port to publish PlexPy webui on. Leave blank to not publish the port (for if you want to hide it behind an LB)
+      default:
+      type: int
+    - variable: QBITTORRENT_ENABLE
+      label: Enable QBitTorrent?
+      type: boolean
+    - variable: QBITTORRENT_CONFIG
+      label: QBitTorrent config
+      description: Where to put qbittorrent configuration data
+      default: qbittorrent-data
+      type: string
+      required: true
+    - variable: TORRENT_PORT
+      label: Torrent port
+      description: Torrent port needs to be publicly reachable.
+      default: 6881
+      type: int
+      required: true
+    - variable: QBITTORRENT_PORT
+      label: Public QBitTorrent port
+      description: Port to publish QBittorrent webui on. Leave blank to not publish the port (for if you want to hide it behind an LB)
       default:
       type: int
 

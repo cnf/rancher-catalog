@@ -33,5 +33,22 @@ SONARR_ENABLE
       TZ: ${TIMEZONE}
 {{- end}}
 
-#  qbittorrent:
-#    image:
+{{- if eq .Values.QBITTORRENT_ENABLE true}}
+  qbittorrent:
+    image: linuxserver/qbittorrent:latest
+    volumes:
+      - ${QBITTORRENT_CONFIG}:/config
+      - ${DOWNLOADS}:/downloads
+      expose:
+      - "8080/tcp"
+      - "${TORRENT_PORT}/tcp"
+      - "${TORRENT_PORT}/udp"
+      ports:
+      - "${TORRENT_PORT}:${TORRENT_PORT}/tcp"
+      - "${TORRENT_PORT}:${TORRENT_PORT}/udp"
+{{- if ne .Values.QBITTORRENT_PORT ""}}
+      - "${QBITTORRENT_PORT}:8080/tcp"
+{{- end}}
+    environment:
+      TZ: ${TIMEZONE}
+{{- end}}
