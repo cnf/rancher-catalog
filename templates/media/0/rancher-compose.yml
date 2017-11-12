@@ -68,20 +68,20 @@ catalog:
       type: int
 
 
-services: 
-  sonarr:
-    scale: 1
-    health_check:
-      port: 8989
-      interval: 5000
-      unhealthy_threshold: 3
-      request_line: ''
-      healthy_threshold: 2
-  plexpy:
-    scale: 1
-    health_check:
-      port: 8181
-      interval: 5000
-      unhealthy_threshold: 3
-      request_line: ''
-      healthy_threshold: 2
+# services: 
+#   sonarr:
+#     scale: 1
+#     health_check:
+#       port: 8989
+#       interval: 5000
+#       unhealthy_threshold: 3
+#       request_line: ''
+#       healthy_threshold: 2
+#   plexpy:
+#     scale: 1
+#     health_check:
+#       port: 8181
+#       interval: 5000
+#       unhealthy_threshold: 3
+#       request_line: ''
+#       healthy_threshold: 2
