@@ -38,11 +38,11 @@ services:
     volumes:
       - ${QBITTORRENT_CONFIG}:/config
       - ${DOWNLOADS}:/downloads
-      expose:
+    expose:
       - "8080/tcp"
       - "${TORRENT_PORT}/tcp"
       - "${TORRENT_PORT}/udp"
-      ports:
+    ports:
       - "${TORRENT_PORT}:${TORRENT_PORT}/tcp"
       - "${TORRENT_PORT}:${TORRENT_PORT}/udp"
 {{- if ne .Values.QBITTORRENT_PORT ""}}
