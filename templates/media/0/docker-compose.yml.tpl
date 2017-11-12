@@ -1,6 +1,6 @@
 version: '2'
 services:
-{{- if eq .Values.SONARR_ENABLE true}}
+{{- if .Values.SONARR_ENABLE }}
   sonarr:
     image: linuxserver/sonarr:latest
     volumes:
@@ -17,7 +17,7 @@ services:
       TZ: ${TIMEZONE}
 {{- end}}
 
-{{- if eq .Values.PLEXPY_ENABLE true}}
+{{- if .Values.PLEXPY_ENABLE }}
   plexpy:
     image: linuxserver/plexpy:latest
     volumes:
@@ -32,7 +32,7 @@ services:
       TZ: ${TIMEZONE}
 {{- end}}
 
-{{- if eq .Values.QBITTORRENT_ENABLE true}}
+{{- if .Values.QBITTORRENT_ENABLE }}
   qbittorrent:
     image: linuxserver/qbittorrent:latest
     volumes:
