@@ -1,0 +1,64 @@
+version: '2'
+catalog:
+  name: Media
+  version: v1
+  description: "Media stack"
+  questions:
+    - variable: TIMEZONE
+      label: Timezone
+      default: "Europe/Brussels"
+      type: text
+      required: true
+    - variable: SONARR_ENABLE
+      type: bool
+    - variable: SONARR_CONFIG
+      label: Sonarr config
+      description: Where to put sonarr configuration data
+      default: sonarr-data
+      type: string
+      required: true
+    - variable: SONARR_TV
+      label: Path to TV shows
+      type: string
+      required: true
+    - variable: DOWNLOADS
+      label: Path to finished downloads
+      type: string
+      required: true
+    - variable: SONARR_PORT
+      label: Public sonarr port
+      description: Port to publish Sonarr webui on. Leave blank to not publish the port (for if you want to hide it behind an LB)
+      default: 
+      type: int
+    - variable: PLEXPY_ENABLE
+      type: bool
+    - variable: PLEXPY_CONFIG
+      label: PlexPy config
+      description: Where to put sonarr configuration data
+      default: plexpy-data
+      type: string
+      required: true
+    - variable: PLEXPY_PORT
+      label: Public PlexPy port
+      description: Port to publish PlexPy webui on. Leave blank to not publish the port (for if you want to hide it behind an LB)
+      default:
+      type: int
+
+
+services: 
+  sonarr:
+    scale: 1
+    health_check:
+      port: 8989
+      interval: 5000
+      unhealthy_threshold: 3
+      request_line: ''
+      healthy_threshold: 2
+  plexpy:
+    scale: 1
+    health_check:
+      port: 8181
+      interval: 5000
+      unhealthy_threshold: 3
+      request_line: ''
+      healthy_threshold: 2
