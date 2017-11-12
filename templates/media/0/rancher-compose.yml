@@ -6,7 +6,6 @@ catalog:
   questions:
     - variable: TIMEZONE
       label: Timezone
-
       default: "Europe/Brussels"
       type: string
       required: true
