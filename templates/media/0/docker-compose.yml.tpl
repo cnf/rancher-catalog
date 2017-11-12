@@ -1,6 +1,5 @@
 version: '2'
 services:
-SONARR_ENABLE
 {{- if eq .Values.SONARR_ENABLE true}}
   sonarr:
     image: linuxserver/sonarr:latest
