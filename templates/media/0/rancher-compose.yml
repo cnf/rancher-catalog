@@ -10,7 +10,8 @@ catalog:
       type: text
       required: true
     - variable: SONARR_ENABLE
-      type: bool
+      label: Enable sonarr?
+      type: boolean
     - variable: SONARR_CONFIG
       label: Sonarr config
       description: Where to put sonarr configuration data
@@ -31,7 +32,8 @@ catalog:
       default: 
       type: int
     - variable: PLEXPY_ENABLE
-      type: bool
+      label: Enable plexpy?
+      type: boolean
     - variable: PLEXPY_CONFIG
       label: PlexPy config
       description: Where to put sonarr configuration data
