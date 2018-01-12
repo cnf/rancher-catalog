@@ -1,7 +1,7 @@
 version: '2'
 catalog:
   name: Home Assistant
-  version: v1
+  version: v2
   description: |
     Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
   questions:
