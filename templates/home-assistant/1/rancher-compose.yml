@@ -16,6 +16,11 @@ catalog:
       required: true
       default: false
       type: boolean
+    - variable: ENABLE_HOMEBRIDGE
+      label: Enable HomeBridge?
+      required: true
+      default: false
+      type: boolean
     - variable: HOMEBRIDGE_CONFIG
       label: HomeBridge config
       description: Where the homebridge config is stored
